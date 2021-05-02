@@ -18,7 +18,7 @@ import csv
 """
 Path initializations
 """
-main_path = "D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3"
+main_path = os.path.join(os.path.abspath(""),"Dataset")
 img_dir = "images"
 csv_file =  os.path.join(main_path, "output.csv")
 model_name = "model-ds1-036-0.008626.h5"
@@ -37,8 +37,8 @@ def isfile(file):
 
 # -- Load csv file
 def load_rc_csv(csv_file):
-    data_df = pd.read_csv(csv_file, names=default_labels)
-    data = data_df[default_labels].values
+    data_df = pd.read_csv(csv_file)
+    data = data_df[:].values
     return data
 
 # -- Histogram plot of data

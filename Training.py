@@ -27,8 +27,8 @@ import os
 import cv2
 
 # Path initializations
-main_path = "D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3"
-img_dir = "D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3\images"
+main_path = os.path.join(os.path.abspath(""),"Dataset")
+img_dir = os.path.join(main_path,"images")
 csv_file =  os.path.join(main_path, "output.csv")
 model_name = "model-ds1-036-0.008626.h5"
 logdir = os.path.join(main_path, "logs")
@@ -57,7 +57,8 @@ def isdir(path):
 
 # -- Load csv file
 def load_rc_csv(csv_file):
-    data_df = pd.read_csv(csv_file, names=default_labels)
+    data_df = pd.read_csv(csv_file)
+    data_df.columns = default_labels
     data = data_df[default_labels].values
     return data
 
@@ -145,7 +146,8 @@ def data_generator(feature, label, batch_size, is_training, lucky_number=0.5):
 
 # - Loading CSV file
 def load_data(amount=3):    
-    data_df = pd.read_csv(csv_file, names=default_labels)  # Adjust labels here
+    data_df = pd.read_csv(csv_file)
+    data_df.columns = default_labels
     x = data_df[default_labels[0]].values # Image file name as input
     y = data_df[default_labels[4]].values # steering value as output
     y = np.ndarray.tolist(y)
@@ -245,4 +247,4 @@ if __name__ == '__main__':
     print("\nBEFORE TRAINING ===================================================")
     test()
     print("\nAFTER TRAINING ====================================================")
-    #main(model_name=None)
+    main(model_name=None)

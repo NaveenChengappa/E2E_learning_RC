@@ -30,12 +30,12 @@ def load_image(image_name):
     return image
 
 # load CSV file of output data
-data_df = pd.read_csv('D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3\output_1.csv')
+data_df = pd.read_csv('Dataset\output.csv')
 image_files = data_df['file_names'].values
 steering = data_df['Norm_angles'].values
 
 # Load the TFLite model and allocate tensors.
-interpreter = tf.lite.Interpreter(model_path="D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3\models\e40_spe6k_bs64_split0.2\model-ds1-036-008626.tflite")
+interpreter = tf.lite.Interpreter(model_path="Dataset\models\e40_spe6k_bs64_split0.2\model-ds1-036-008626.tflite")
 interpreter.allocate_tensors()
 # Get input and output tensors.
 input_details = interpreter.get_input_details()
@@ -53,7 +53,7 @@ time = np.arange(0,reqd_data)
 actual_steer = []
 predict_steer = []
 error = []
-img_path = "Dataset_3/images/"
+img_path = "Dataset/images/"
 for i in range(reqd_data):
     image = load_image(img_path+image_files[i])
     input_data = np.array(image, dtype=np.float32)

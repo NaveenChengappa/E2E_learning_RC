@@ -28,9 +28,9 @@ def load_image(image_name):
     return image
 
 # Load your model
-model = load_model('Dataset_3/models/e40_spe6k_bs64_split0.2/model-ds1-036-0.008626.h5')
+model = load_model('Dataset/models/e40_spe6k_bs64_split0.2/model-ds1-036-0.008626.h5')
 # Load sample image
-image = load_image('Dataset_3/images/02_09__23_31_52_43.jpg')
+image = load_image('Dataset/images/02_09__23_31_52_43.jpg')
 
 # Conv image analysis and print
 activations = get_activations(model, image, auto_compile=True)

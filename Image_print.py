@@ -17,8 +17,8 @@ from tensorflow.keras.preprocessing.image import img_to_array
 """
 Path initializations
 """
-main_path = "D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3"
-img_dir = "D:\FhD_Subjects\III Semester\E2E_Codes\Dataset_3\images"
+main_path = os.path.join(os.path.abspath(""),"Dataset")
+img_dir = os.path.join(main_path,"images")
 csv_file =  os.path.join(main_path, "output.csv")
 
 test_train_split = 0.2
@@ -38,7 +38,8 @@ def load_rc_image(image):
 
 # - Loading CSV file
 def load_data():    
-    data_df = pd.read_csv(csv_file, names=default_labels)
+    data_df = pd.read_csv(csv_file)
+    data_df.columns = default_labels       
     x = data_df[default_labels[0]].values # Image file name as input
     y = data_df[default_labels[4]].values # steering value as output
     y = np.ndarray.tolist(y)   
