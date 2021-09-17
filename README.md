@@ -3,6 +3,8 @@ Autonomous driving of RC car using end-to-end learning
 
 ## Abstract
 This research thesis implements an autonomous remote-control car. It uses the images captured by one front facing camera as an input to the machine learning neural network and predicts the steering values of the car in real time. The throttle is a function of the steering value in this autonomous operation. The project has been carried out using several hardware components like the Raspberry Pi, Arduino, and a RC car along with its essential peripherals. The project involves the data collection phase where the steering values and the corresponding images were captured as the RC car is manually driven around a test track. This data is then processed and used to train a convolutional neural network. The steering values can then be predicted using the trained model. The predicted steering values will be used to determine the throttle in real time and subsequently drive the RC car autonomously around the complete test track as the final result.
+![Overview](https://user-images.githubusercontent.com/57918108/133751903-36fc16c5-9c35-432a-b1d0-bc7d22de3c8e.JPG)
+![RC car](https://user-images.githubusercontent.com/57918108/133752026-c4466b65-6d64-4647-829f-c19e57c6f06f.jpg)
 
 ## Steps
 STEPS FOR DATA COLLECTION PHASE:
