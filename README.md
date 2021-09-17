@@ -32,4 +32,4 @@ STEPS FOR AUTONOMOUS PHASE:
 8. Press the push button on the RC car to terminate the autonomous driving session.
 
 ## Credits
-Credits to [tuannguyen](https://github.com/m4tice)
+E2E learning implementation on Carla simulator by [tuannguyen](https://github.com/m4tice)
